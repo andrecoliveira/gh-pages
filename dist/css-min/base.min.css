@@ -98,7 +98,7 @@ a {
   text-decoration: none !important; }
 
 a:hover, a:active, a:focus {
-  color: #7dce94;
+  color: #DF4476;
   outline: none; }
 
 * {
@@ -116,7 +116,7 @@ a:hover, a:active, a:focus {
 
 .section-title {
   margin: 0;
-  padding-bottom: 62px; }
+  padding-bottom: 15px; }
 
 #about,
 #skills,
@@ -181,8 +181,7 @@ a:hover, a:active, a:focus {
   background-color: #ffffff;
   padding: 18px 0px; }
 
-.custom-navbar .navbar-brand {
-  color: #444;
+.custom-navbar .navbar-brand {  
   font-weight: bold;
   font-size: 3rem;
   line-height: 35px; }
@@ -196,6 +195,12 @@ a:hover, a:active, a:focus {
   -webkit-transition: all ease-in-out 0.4s;
   transition: all ease-in-out 0.4s; }
 
+.navbar-fixed-top .navbar-brand {  
+  color: white; }
+
+.navbar-fixed-top.top-nav-collapse .navbar-brand {  
+  color: #444; }
+
 .top-nav-collapse .nav li:not(.active) a {
   color: #666 !important; }
 
@@ -204,7 +209,7 @@ a:hover, a:active, a:focus {
 
 .custom-navbar .nav li a:hover {
   background: transparent;
-  color: #7dce94; }
+  color: #DF4476; }
 
 .custom-navbar .navbar-nav > li > a:hover,
 .custom-navbar .navbar-nav > li > a:focus {
@@ -269,9 +274,6 @@ a:hover, a:active, a:focus {
 /*---------------------------------------
     About and Skill section              
 -----------------------------------------*/
-#about,
-#skills {
-  padding-bottom: 120px; }
 
 #about .col-md-3 img,
 #skills .col-md-3 img {
@@ -285,7 +287,7 @@ a:hover, a:active, a:focus {
 
 #about ul.about-profile,
 #skills ul.about-profile {
-  padding-left: 20px; }
+  padding-left: 0; }
 
 #about ul.about-profile li,
 #skills ul.about-profile li {
