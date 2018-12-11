@@ -1,0 +1,25 @@
+/*---------------------------------------------------------------
+
+  Project Name: André Oliveira - Minimal Resume 
+  File Name: style.css
+  Author: André Oliveira
+  Author URI: http://andrecoliveira.github.io
+  Version: 1.0.0
+
+------------------------------------------------------------------*/
+/*----------------------------------------------------------------*/
+
+@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+
+/* Bootstrap CSS */ 
+@import url("bootstrap.min.css") screen;
+
+/* Animate CSS */ 
+@import url("animate.css") screen;
+
+/* Estrutura SMACSS */ 
+@import url("base.min.css") screen;
+@import url("layout.min.css") screen;
+@import url("module.min.css") screen;
+@import url("state.min.css") screen;
+@import url("theme.min.css") screen;
