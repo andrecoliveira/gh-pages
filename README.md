@@ -4,6 +4,6 @@
 
 **Nationality :** Brazilian
 
-**Living :** Sydney, NSW
+**Living :** Fortaleza, Brazil
 
 **Email :** coliveira.andre@gmail.com
