@@ -1,29 +1,49 @@
-var gulp = require('gulp');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
-var notify = require('gulp-notify');
+const gulp = require("gulp");
+const rename = require("gulp-rename");
+const browsersync = require("browser-sync").create();
+const sass = require("gulp-sass")(require("sass"));
 
 //Local dos arquivos SASS
-var files = "dist/sass/*.scss";
+const SASS = "dist/sass/*.scss";
 
-//Tarefa para minificar e renomear os arquivos
-gulp.task('sass', function(){
-	return gulp.src(files)
-		.pipe(rename({ suffix: '.min' }))
-		//Expanded compressed compact nested
-		.pipe(sass({
-	      compass: true,
-	      style: 'compressed'
-    	}))
-		.pipe(sass())		
-		.pipe(gulp.dest('dist/css-min'))
-		.pipe(notify({ message: 'Styles task complete!' }));
-});
+//Local dos arquivos CSS
+const CSS = "dist/css/*.css";
 
-gulp.task('watch', function(){
-  	gulp.watch(files, ['sass']); 
-  	// Other watchers
-});
+//Compila o SASS (.scss)
+gulp.task(
+	"sass",
+	gulp.series(function () {
+		return gulp
+			.src([SASS])
+			.pipe(rename({ suffix: ".min" }))
+			.pipe(
+				sass({
+					compass: true,
+					style: "compressed",
+				})
+			)
+			.pipe(sass())
+			.pipe(gulp.dest("dist/css-min"))
+			.pipe(browsersync.stream());
+	})
+);
 
-gulp.task('default', ['watch', 'sass']);
+//Servidor para olhar os arquivos .html e .scss
+gulp.task(
+	"server",
+	gulp.series(["sass"], function () {
+		browsersync.init({
+			server: {
+				baseDir: ".",
+			},
+		});
+
+		gulp.watch([SASS], gulp.parallel(["sass"]));
+
+		gulp
+			.watch(["*.html", SASS, CSS])
+			.on("change", gulp.parallel(browsersync.reload));
+	})
+);
+
+gulp.task("default", gulp.series(["server"]));
